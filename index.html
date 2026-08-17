@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chad's Ranking</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0; min-height:100vh; color:#f4f4f4; font-family:Inter,Arial,sans-serif;
+ background:
+   linear-gradient(rgba(4,4,4,.78),rgba(4,4,4,.92)),
+   url("images/1.png") center/cover fixed,
+   #070707;
+}
+body:before{
+ content:""; position:fixed; inset:0; pointer-events:none; opacity:.10;
+ background-image:url("images/2.jpg"); background-size:cover; background-position:center;
+ mix-blend-mode:screen;
+}
+header{position:relative;text-align:center;padding:48px 18px 26px}
+.badge{display:inline-block;padding:8px 14px;border:1px solid #806a2d;border-radius:999px;color:#d8b95c;font-size:12px;letter-spacing:3px;text-transform:uppercase;background:#111a}
+h1{font-size:clamp(48px,9vw,92px);margin:14px 0 4px;letter-spacing:-4px;color:#d9b650;text-shadow:0 0 28px #000;font-weight:900}
+.subtitle{margin:0;color:#aaa}
+.timer{margin:22px auto 0;width:min(560px,92vw);padding:18px;border:1px solid #4a3b18;border-radius:18px;background:#0b0b0de8;backdrop-filter:blur(12px)}
+.timer small{display:block;color:#8f8f8f;letter-spacing:2px;text-transform:uppercase}
+#countdown{font-size:34px;font-weight:900;color:#f0d36d;margin-top:6px;letter-spacing:2px}
+.grid{position:relative;width:min(1100px,92vw);margin:28px auto 60px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{position:relative;overflow:hidden;border:1px solid #282828;border-radius:22px;background:#101010;min-height:360px;box-shadow:0 16px 45px #0008;transition:.2s transform,.2s border-color}
+.card:hover{transform:translateY(-5px);border-color:#806a2d}
+.card img{width:100%;height:380px;object-fit:cover;display:block;filter:saturate(.9)}
+.card:after{content:"";position:absolute;inset:42% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.96));pointer-events:none}
+.rank{position:absolute;z-index:3;top:14px;left:14px;padding:9px 12px;border-radius:11px;background:#050505cc;border:1px solid #ffffff18;font-weight:900;color:#f0d36d}
+.vote-tag{position:absolute;z-index:3;top:14px;right:14px;padding:8px 11px;border-radius:10px;background:#d9b650;color:#090909;font-size:11px;font-weight:900;letter-spacing:1px}
+.info{position:absolute;z-index:3;left:18px;right:18px;bottom:62px;display:flex;align-items:end;justify-content:space-between;gap:10px}
+.info h2{margin:0;font-size:27px}
+.info p{margin:4px 0 8px;color:#bbb;font-size:13px}
+.tier{display:inline-block;padding:4px 8px;border-radius:7px;background:#252525;color:#e3c866;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.movement{font-size:30px;font-weight:900}
+.movement.up{color:#65d58a} .movement.down{color:#ef6b6b} .movement.same{color:#999}
+.vote{position:absolute;z-index:4;left:18px;bottom:16px;width:calc(100% - 36px);padding:11px;border:1px solid #806a2d;border-radius:11px;background:#17140b;color:#e7c85f;font-weight:900;cursor:pointer}
+.vote:hover{background:#25200f}
+footer{position:relative;text-align:center;color:#666;font-size:12px;padding:0 20px 35px}
+.notice{position:relative;width:min(760px,92vw);margin:0 auto 24px;padding:13px 16px;border:1px solid #282828;border-radius:14px;background:#0b0b0bcc;color:#8d8d8d;text-align:center}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card img{height:430px}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Competitive Rankings</span>
+  <h1>Chad's Ranking</h1>
+  <p class="subtitle">The current leaderboard • Results update every 72 hours</p>
+  <div class="timer">
+    <small>Next results in</small>
+    <div id="countdown">72:00:00</div>
+  </div>
+</header>
+
+<div class="notice">Vote for the competitor you want to see rise on the next leaderboard.</div>
+
+<main class="grid">
+
+      <article class="card">
+        <div class="rank">#1</div>
+        <img src="images/1.png" alt="filyx">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>filyx</h2>
+            <p>Gene peak</p>
+            <span class="tier">chad</span>
+          </div>
+          <div class="movement up">▲</div>
+        </div>
+        <button class="vote" data-name="filyx">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#2</div>
+        <img src="images/2.jpg" alt="salad">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>salad</h2>
+            <p>htn Mysterious</p>
+            <span class="tier">htn</span>
+          </div>
+          <div class="movement down">▼</div>
+        </div>
+        <button class="vote" data-name="salad">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#3</div>
+        <img src="images/3.jpg" alt="malk">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>malk</h2>
+            <p>The strong</p>
+            <span class="tier">mtn</span>
+          </div>
+          <div class="movement up">▲</div>
+        </div>
+        <button class="vote" data-name="malk">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#4</div>
+        <img src="images/4.jpg" alt="mahdi">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>mahdi</h2>
+            <p>htn النازل</p>
+            <span class="tier">mtn</span>
+          </div>
+          <div class="movement down">▼</div>
+        </div>
+        <button class="vote" data-name="mahdi">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#5</div>
+        <img src="images/5.jpg" alt="ramy">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>ramy</h2>
+            <p>The Uncrowned Giant</p>
+            <span class="tier">ltn</span>
+          </div>
+          <div class="movement up">▲</div>
+        </div>
+        <button class="vote" data-name="ramy">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#6</div>
+        <img src="images/6.jpg" alt="samy">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>samy</h2>
+            <p>Medium face</p>
+            <span class="tier">mtn</span>
+          </div>
+          <div class="movement same">—</div>
+        </div>
+        <button class="vote" data-name="samy">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#7</div>
+        <img src="images/7.jpg" alt="aziz">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>aziz</h2>
+            <p>feminine boy</p>
+            <span class="tier">sub5</span>
+          </div>
+          <div class="movement down">▼</div>
+        </div>
+        <button class="vote" data-name="aziz">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#8</div>
+        <img src="images/8.jpg" alt="mondr">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>mondr</h2>
+            <p>skinny boy</p>
+            <span class="tier">sub5</span>
+          </div>
+          <div class="movement same">—</div>
+        </div>
+        <button class="vote" data-name="mondr">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#9</div>
+        <img src="images/9.jpg" alt="siyf">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>siyf</h2>
+            <p>Indian cooked</p>
+            <span class="tier">sub5</span>
+          </div>
+          <div class="movement down">▼</div>
+        </div>
+        <button class="vote" data-name="siyf">Vote</button>
+      </article>
+    
+      <article class="card">
+        <div class="rank">#10</div>
+        <img src="images/10.jpg" alt="الفايروس">
+        <div class="vote-tag">VOTE</div>
+        <div class="info">
+          <div>
+            <h2>الفايروس</h2>
+            <p>The sliced germ</p>
+            <span class="tier">sub3</span>
+          </div>
+          <div class="movement same">—</div>
+        </div>
+        <button class="vote" data-name="الفايروس">Vote</button>
+      </article>
+    
+</main>
+
+<footer>Chad's Ranking • Demo leaderboard</footer>
+
+<script>
+let remaining = 72 * 60 * 60;
+const el = document.getElementById("countdown");
+function tick(){
+  const h = Math.floor(remaining / 3600);
+  const m = Math.floor((remaining % 3600) / 60);
+  const s = remaining % 60;
+  el.textContent = [h,m,s].map(x => String(x).padStart(2,"0")).join(":");
+  if (remaining > 0) remaining--;
+}
+tick(); setInterval(tick,1000);
+
+document.querySelectorAll(".vote").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.textContent = "VOTE RECORDED ✓";
+    btn.disabled = true;
+    btn.style.opacity = ".65";
+  });
+});
+</script>
+</body>
+</html>
